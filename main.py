@@ -17,6 +17,7 @@ def main() -> None:
     )
     assert "\n" not in LINE and "\r" not in LINE, "line must be a single line"
     assert LINE.strip(), "line must not be blank only"
+    assert LINE == LINE.strip(), "line must not have leading/trailing whitespace"
     out = Path("/output/entry.txt")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(LINE + "\n", encoding="utf-8")
